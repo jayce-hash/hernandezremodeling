@@ -29,6 +29,7 @@
             line-height: 1.7;
             background-color: var(--bg-light);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
 
         h1, h2, h3 {
@@ -41,24 +42,31 @@
             color: inherit;
         }
 
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Reusable Components */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         .btn-primary {
             display: inline-block;
             background-color: var(--brand-red);
             color: var(--white);
-            padding: 16px 36px;
+            padding: 14px 28px;
             font-size: 1rem;
             font-weight: 600;
             border-radius: 4px;
             letter-spacing: 0.5px;
             transition: var(--transition);
             box-shadow: 0 4px 14px rgba(176, 32, 37, 0.3);
+            text-align: center;
         }
 
         .btn-primary:hover {
@@ -81,7 +89,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
+            min-height: 90px;
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         .logo {
@@ -92,7 +102,7 @@
 
         .logo-top {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: clamp(22px, 4vw, 28px); /* Fluid size */
             font-weight: 700;
             color: var(--brand-red);
             letter-spacing: 1px;
@@ -101,7 +111,7 @@
 
         .logo-bottom {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: clamp(11px, 2vw, 14px);
             font-weight: 600;
             color: var(--brand-blue);
             letter-spacing: 3px;
@@ -111,12 +121,12 @@
         /* Hero Section */
         .hero {
             position: relative;
-            height: 80vh;
-            min-height: 600px;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, rgba(28, 32, 66, 0.9), rgba(28, 32, 66, 0.6)), url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(to right, rgba(28, 32, 66, 0.92), rgba(28, 32, 66, 0.7)), url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
             color: var(--white);
+            padding: 80px 0;
         }
 
         .hero-content {
@@ -125,7 +135,7 @@
 
         .tagline {
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #E2E8F0;
@@ -135,13 +145,13 @@
 
         .hero h1 {
             color: var(--white);
-            font-size: 4rem;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Fluid typography for mobile to desktop */
+            line-height: 1.1;
             margin-bottom: 24px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: #E2E8F0;
             margin-bottom: 40px;
             font-weight: 300;
@@ -150,11 +160,11 @@
         /* Trust Banner */
         .trust-banner {
             background-color: var(--white);
-            padding: 30px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             position: relative;
             z-index: 10;
-            margin-top: -40px;
+            margin-top: -50px;
             border-radius: 8px;
         }
 
@@ -173,12 +183,14 @@
             font-weight: 600;
             color: var(--brand-blue);
             font-size: 0.95rem;
+            text-align: left;
         }
 
         .trust-item svg {
             width: 24px;
             height: 24px;
             fill: var(--brand-red);
+            flex-shrink: 0;
         }
 
         .stars {
@@ -189,17 +201,17 @@
 
         /* Services Section */
         .services {
-            padding: 100px 0;
+            padding: clamp(60px, 10vw, 100px) 0;
             background-color: var(--bg-light);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: clamp(40px, 6vw, 60px);
         }
 
         .section-header h2 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 16px;
         }
 
@@ -207,24 +219,25 @@
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
         .service-card {
             background: var(--white);
-            padding: 40px 30px;
+            padding: 35px 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: var(--transition);
             border: 1px solid #E5E7EB;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
 
         .service-card::before {
@@ -241,7 +254,7 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.08);
         }
 
@@ -250,7 +263,7 @@
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 12px;
         }
 
@@ -263,26 +276,26 @@
         .contact {
             background-color: var(--brand-blue);
             color: var(--white);
-            padding: 100px 0;
+            padding: clamp(60px, 10vw, 100px) 0;
         }
 
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: clamp(40px, 8vw, 60px);
             align-items: center;
         }
 
         .contact-content h2 {
             color: var(--white);
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 24px;
         }
 
         .contact-content p {
             color: #E2E8F0;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
         }
 
         .free-estimate-badge {
@@ -299,13 +312,13 @@
 
         .contact-info {
             background: rgba(255, 255, 255, 0.05);
-            padding: 50px;
+            padding: clamp(30px, 5vw, 50px);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .info-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .info-group:last-child {
@@ -313,18 +326,19 @@
         }
 
         .info-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #94A3B8;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: block;
         }
 
         .info-data {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: 600;
             color: var(--white);
+            word-wrap: break-word; /* Important for long emails on mobile */
         }
 
         .info-data a {
@@ -351,37 +365,50 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Responsive Breakpoints */
         @media (max-width: 900px) {
             .contact-wrapper {
                 grid-template-columns: 1fr;
             }
-            .hero h1 {
-                font-size: 3rem;
-            }
         }
 
-        @media (max-width: 600px) {
-            .nav-wrapper {
-                flex-direction: column;
-                height: auto;
-                padding: 20px 0;
-                gap: 20px;
-            }
+        @media (max-width: 768px) {
             .hero {
-                text-align: center;
-            }
-            .hero-content {
-                margin: 0 auto;
+                min-height: auto;
+                padding: 100px 0;
             }
             .trust-banner {
-                margin-top: 0;
-                border-radius: 0;
+                margin-top: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             }
             .trust-grid {
                 flex-direction: column;
                 align-items: flex-start;
-                padding-left: 20px;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .logo {
+                align-items: center;
+            }
+            .btn-primary {
+                width: 100%;
+                padding: 12px 20px;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                padding: 25px;
             }
         }
     </style>
@@ -491,12 +518,12 @@
 
                     <div class="info-group">
                         <span class="info-label">Email Us</span>
-                        <div class="info-data" style="font-size: 1.1rem;"><a href="mailto:arturohernandezremodeling@gmail.com">arturohernandezremodeling@gmail.com</a></div>
+                        <div class="info-data"><a href="mailto:arturohernandezremodeling@gmail.com">arturohernandezremodeling@gmail.com</a></div>
                     </div>
 
                     <div class="info-group">
                         <span class="info-label">Location</span>
-                        <div class="info-data" style="font-size: 1.1rem;">Denton, TX</div>
+                        <div class="info-data">Denton, TX</div>
                         <div class="sub-data">United States</div>
                     </div>
                 </div>
