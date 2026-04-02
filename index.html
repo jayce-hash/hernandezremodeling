@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hernandez Remodeling | General Contractor in Denton, TX</title>
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-blue: #2B2E63;
+            --primary-red: #A32A29;
+            --light-gray: #f4f4f4;
+            --dark-gray: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(43, 46, 99, 0.85), rgba(43, 46, 99, 0.85)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #8a2120;
+            color: var(--white);
+        }
+
+        /* Trust Banner */
+        .trust-banner {
+            background-color: var(--light-gray);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .trust-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #FFD700;
+            letter-spacing: 2px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .services h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 15px auto 0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top: 4px solid var(--primary-red);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .contact-info-box {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .contact-info-box h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .phone-number {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--white);
+            display: block;
+            margin: 10px 0;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1c3b;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .trust-features { flex-direction: column; align-items: center; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Arturo <span>Hernandez</span> Remodeling</div>
+            <a href="tel:9728365837" class="btn" style="padding: 10px 20px; font-size: 1rem;">Call for Free Estimate</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>We Make Your Ideas Become Reality</h1>
+        <p>Your trusted General Contractor in Denton, TX. We are family owned, operated, registered, and fully insured. Delivering quality craftsmanship for your home.</p>
+        <a href="#contact" class="btn">Get Your Free Estimate Today</a>
+    </section>
+
+    <section class="trust-banner">
+        <div class="trust-features">
+            <div class="trust-item">✓ Family Owned & Operated</div>
+            <div class="trust-item">✓ Registered & Insured</div>
+            <div class="trust-item">✓ Open Now</div>
+            <div class="trust-item">
+                <span class="stars">★★★★★</span> 100% Recommend (5 Reviews)
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Painting & Texturing</h3>
+                <p>Professional interior and exterior painting, along with expert drywall and surface texturing.</p>
+            </div>
+            <div class="service-card">
+                <h3>Tile & Siding</h3>
+                <p>High-quality tile installation for any room and durable siding replacement and repair.</p>
+            </div>
+            <div class="service-card">
+                <h3>Floorings</h3>
+                <p>Expert installation of Hardwood, Laminate, and tile flooring to transform your living spaces.</p>
+            </div>
+            <div class="service-card">
+                <h3>Showers & Backsplash</h3>
+                <p>Custom bathroom shower remodeling and beautiful kitchen backsplashes tailored to your style.</p>
+            </div>
+            <div class="service-card">
+                <h3>Plumbing</h3>
+                <p>Reliable plumbing services to support your remodeling projects and general home needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info-box">
+                <h3>Call Us Directly</h3>
+                <div class="contact-details">
+                    <p><strong>Arturo Jr.</strong></p>
+                    <a href="tel:9728365837" class="phone-number">(972) 836-5837</a>
+                    <br>
+                    <p><strong>Arturo Sr.</strong></p>
+                    <a href="tel:2144345281" class="phone-number">(214) 434-5281</a>
+                </div>
+            </div>
+
+            <div class="contact-info-box">
+                <h3>Business Details</h3>
+                <div class="contact-details">
+                    <p><strong>Email:</strong><br> arturohernandezremodeling@gmail.com</p>
+                    <p><strong>Location:</strong><br> Denton, TX, United States</p>
+                    <p><strong>Facebook:</strong><br> Hernandez Remodeling</p>
+                    <p style="margin-top: 15px; color: #FFD700; font-weight: bold;">FREE ESTIMATES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Arturo Hernandez Remodeling. All rights reserved. | General Contractor</p>
+    </footer>
+
+</body>
+</html>
